@@ -2,9 +2,7 @@
 
 int main()
 {
-    int n;
-    printf("Rows : ");
-    scanf("%d", &n);
+    int n = 5;
 
     for (int i = 1; i <= n; i++)
     {
