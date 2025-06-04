@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{url.for('static', filename='design.css')}}">
+</head>
+<body>
+    <h3>Kevin memiliki hobi {{hob}}</h3>
+    <h3>Makanan Fav Kevin:</h3>
+    <ul>
+        <li>{{fo[0]}}</li>
+        <li>{{fo[1]}}</li>
+        <li>{{fo[2]}}</li>
+    </ul>
+    <br/>
+    <ul>
+        {% for i in fo %}
+            <li>{{i}}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="indexs.js"></script>
+</head>
+<body onload="alert('WELCOME 2PTI51')">
+    <h1>Halo Kawan</h1>
+    <button onclick="sapa()">Klik</button>
+    <script>
+        document.write("<font color = 'blue'>Hari ini cerah sekali ^.^</font>");
+        document.write('<br/>')
+        document.write('Hasil penjumlahan adalah ', penjumlahan());
+    </script>
+    <form action="https://google.co.id/search" onsubmit="input()">
+        <input type="search" name="q">
+        <input type="text" name="pesan">
+        <input type="submit" name="search">
+    </form>
+    <form onsubmit="return false" name="hitung">
+        Panjang <input type="number" name="panjang">
+        Lebar <input type="number" name="lebar">
+        <input type="submit" value = "hitung" onclick="input_hasil()">
+        Hasil <input type="number" name="hsl" readonly>
+    </form>
+    <h4 id = 'hasil'></h4>
+</body>
+</html>

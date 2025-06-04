@@ -26,12 +26,14 @@ class MultilevelList:
                 ptr = ptr.next
             ptr.next = smp
             
-    def addChild(self):
+    def addChild(self, pos):
         smp = Node()
         ptr = self.head
+        pos_next = 0
         if self.head:
-            while ptr.next:
-                ptr = ptr.next                
+            while ptr != None and pos_next + 1 != pos:
+                ptr = ptr.next
+                pos_next += 1                
             ptr.child = smp
                 
     def addNextChild(self):
@@ -64,7 +66,9 @@ class MultilevelList:
 mll = MultilevelList()
 mll.addFirst()
 mll.display()
-mll.addChild()
+mll.addChild(1)
+mll.display()
+mll.addNextChild()
 mll.display()
 mll.addNextChild()
 mll.display()

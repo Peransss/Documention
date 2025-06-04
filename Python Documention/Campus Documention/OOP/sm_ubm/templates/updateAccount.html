@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account</title>
+</head>
+<body>
+    <h2>Edit Account</h2>
+    <form action="process" method="post">
+        <table>
+            <tr>
+                <td>Email</td>
+                <td><input type="text" name="email" value="{{data[0]}}" readonly required /></td>
+            </tr>
+            <tr>
+                <td>Username</td>
+                <td><input type="text" name="username" value="{{data[1]}}" required /></td>
+            </tr>
+            <tr>
+                <td>Fullname</td>
+                <td><input type="text" name="fullname" value="{{data[2]}}" required /></td>
+            </tr>
+            <tr>
+                <td>Bio</td>
+                <td><textarea name="bio" required>{{data[3]}}</textarea></td>
+            </tr>
+            <tr>
+                <td>New Password</td>
+                <td><input type="password" name="newpass" /></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" value="Update" />
+                    <input type="reset" value="Reset" />
+                </td>
+            </tr>
+        </table> 
+    </form>
+</body>
+</html>

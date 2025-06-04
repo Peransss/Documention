@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posting</title>
+    <style>
+        .flash-success { color: green; font-weight: bold;}
+        .flash-error {color: red; font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <p class="flash-{{ category }}">{{ message }}</p>
+            {% endfor %}
+
+        {% endif %}
+    {% endwith %}
+    <table border="1">
+        <a style="text-decoration: none; color: brown;" href="/">Back to Home</a>
+        <br/><br/><hr/>
+        <a style="text-decoration: none; color: blue;" href="/create-posting/">+ Create Posting</a> </a>
+        <caption>Posting</caption>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Image</th>
+                <th>Content</th>
+                <th>Publish Date</th>
+                <th>User Post</th>
+                <th colspan="2">Action</th>
+            </tr>    
+        </thead>
+        <tbody>
+            {% for d in data %}
+                <tr>
+                    <td>{{d[1]}}</td>
+                    <td><img src="{{url_for('static', filename='upload_image/'+d[2])}}" width="200" height="100" alt="{{d[2]}}"></td>
+                    <td>{{d[3]}}</td>
+                    <td>{{d[4]}}</td>
+                    <td>{{d[5]}}</td>
+                    <td><a href="/update-posting/{{d[0]}}">Update</a></td>
+                    <td><a href="/delete-posting/{{d[0]}}">Delete</a></td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="7" align="center">No data available</td>
+                </tr>
+            {% endfor %}    
+        </tbody>
+    </table>
+</body>
+</html>

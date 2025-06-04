@@ -25,18 +25,12 @@ void InsertFirst(struct Node **head, int data) {
 void InsertNext(struct Node **head, int data) {
     struct Node *ptr = *head;
     struct Node *newNode = createNode(data);
-    struct Node *head1 = *head;
-    if (*head != NULL) {
-        printf("Linked list is empty!");
-    } else {
-        while (ptr -> next != *head) {
-            ptr = ptr -> next;
-        }
-        ptr -> next = newNode;
-        newNode -> prev = ptr;
-        newNode -> next = *head;
-        head1 -> prev = newNode;
+    while (ptr -> next != *head) {
+        ptr = ptr -> next;
     }
+    newNode -> next = *head;
+    newNode -> prev = ptr;
+    ptr -> next = newNode;
 }
 
 void print(struct Node* head) {
@@ -57,5 +51,6 @@ int main() {
 
     InsertFirst(&head, 10);
     InsertNext(&head, 5);
+    InsertNext(&head, 15);
     print(head);
 }

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        .flash-error {color: red; font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <p class="flash-{{ category }}">{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <h2>Login</h2>
+    <form action="/login" method="post">
+        <table>
+            <tr>
+                <td>Email</td>
+                <td><input type="text" name="email" required /></td>
+            </tr>
+            <tr>
+                <td>Password</td>
+                <td><input type="password" name="password" required /></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" value="Login" />
+                    <input type="reset" value="Reset" />
+                </td>
+            </tr>
+        </table> 
+    </form>
+</body>
+</html>

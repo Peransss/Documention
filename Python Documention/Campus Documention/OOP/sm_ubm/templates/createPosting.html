@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posting</title>
+</head>
+<body>
+    <h2>Create Posting</h2>
+    <form action="process" method="post" enctype="multipart/form-data">
+        <table>
+            <tr>
+                <td>Title</td>
+                <td><input type="text" name="title" required /></td>
+            </tr>
+            <tr>
+                <td>Image</td>
+                <td><input type="file" name="image" accept=".jpg, .jpeg, .png" required /></td>
+            </tr>
+            <tr>
+                <td>Content</td>
+                <td><textarea name="content" required></textarea></td>
+            </tr>
+            <tr>
+                <td>Publish Date</td>
+                <td><input type="datetime-local" name="published" required /></td>
+            </tr>
+            <tr>
+                <td>User Post</td>
+                <td>
+                    <select name="userpost" required>
+                        <option value="" hidden>-- Pilih User --</option>
+                        {% for d in data %}
+                            <option value="{{d[0]}}">{{d[1]}} - {{d[0]}}</option>
+                        {% endfor %}
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" value="Create" />
+                    <input type="reset" value="Reset" />
+                </td>
+            </tr>
+        </table> 
+    </form>
+</body>
+</html>

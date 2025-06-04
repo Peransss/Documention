@@ -1,0 +1,12 @@
+p {
+    text-align: center;
+}
+
+#tebal {
+    font-weight: bold;
+    background-color: blanchedalmond;
+    height: fit-content;
+}
+.wrnbiru {
+    color: blueviolet;
+}

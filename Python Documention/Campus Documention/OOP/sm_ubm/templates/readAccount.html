@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account</title>
+    <style>
+        .flash-success { color: green; font-weight: bold;}
+        .flash-error {color: red; font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <p class="flash-{{ category }}">{{ message }}</p>
+            {% endfor %}
+
+        {% endif %}
+    {% endwith %}
+    <table border="1">
+        <a style="text-decoration: none; color: brown;" href="/">Back to Home</a>
+        <br/><br/><hr/>
+        <a style="text-decoration: none; color: blue;" href="/create-account/">+ Create Account</a>
+        <br/>
+        <a style="text-decoration: none; color: red;" href="/report-account">Download Report Account</a>
+        <caption>Account</caption>
+        <thead>
+            <tr>
+                <th>Email</th>
+                <th>Username</th>
+                <th>Fullname</th>
+                <th>Bio</th>
+                <th colspan="2">Action</th>
+            </tr>    
+        </thead>
+        <tbody>
+            {% for d in data %}
+                <tr>
+                    <td>{{d[0]}}</td>
+                    <td>{{d[1]}}</td>
+                    <td>{{d[2]}}</td>
+                    <td>{{d[3]}}</td>
+                    <td><a href="/update-account/{{d[0]}}">Update</a></td>
+                    <td><a href="/delete-account/{{d[0]}}">Delete</a></td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="6" align="center">No data available</td>
+                </tr>
+            {% endfor %}    
+        </tbody>
+    </table>
+</body>
+</html>

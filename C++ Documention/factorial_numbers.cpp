@@ -12,3 +12,4 @@ int main()
     cout << "Factorial of " << num << " is: " << fact << endl;
     return 0;
 }
+
