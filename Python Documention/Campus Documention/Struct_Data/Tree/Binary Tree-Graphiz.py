@@ -135,11 +135,10 @@ btree.insert(29)
 #btree.insert("I")
 #btree.insert("S")
 
-print('In-order-traversal before delete : ')
-btree.inOrderTrav(btree.root)
 print()
 if btree.deleteNode(btree.root, 25, None):
     print('In-order-traversal after delete : ')
     btree.inOrderTrav(btree.root)
 else:
     print('Node not find')
+    

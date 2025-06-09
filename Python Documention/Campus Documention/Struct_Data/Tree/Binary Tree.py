@@ -3,6 +3,7 @@ class Node:
         self.data   = data
         self.left   = None  # Left child node
         self.right  = None  # Right child node
+        self.parent = None
 
 class BinaryTree:
     def __init__(self):
@@ -73,11 +74,11 @@ class BinaryTree:
         if deleteCell is None:
             if travCell:
                 if travCell.data == hapus:
-                    self.deleteNode(travCell, hapus, travCell)
+                    self.deleteNodeM(travCell, hapus, travCell)
                     return True
-                if self.deleteNode(travCell.left, hapus, None):
+                if self.deleteNodeM(travCell.left, hapus, None):
                     return True
-                if self.deleteNode(travCell.right, hapus, None):
+                if self.deleteNodeM(travCell.right, hapus, None):
                     return True
             else:   
                 return False
@@ -150,6 +151,8 @@ btree.insert("U")
 btree.insert("D")
 btree.insert("I")
 btree.insert("S")
+
+btree.deleteNodeM(btree.root, "A", None)
 
 search = 'M'
 pre, suc = btree.findPred_Suc(btree.root, search)
