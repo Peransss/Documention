@@ -79,7 +79,7 @@ class BinaryTree:
                     return True
                 if self.deleteNode(travCell.right, hapus, None):
                     return True
-            else:
+            else:   
                 return False
         else:
             if deleteCell.right is None:

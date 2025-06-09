@@ -20,10 +20,9 @@ class CircularLL:
         else:
             while ptr.next != self.head:
                 ptr = ptr.next
+            ptr.next = smp
             smp.next = self.head
-            self.head = smp
-            ptr.next = self.head
-            
+                        
     def addMidNode(self, pos):
         ptr = self.head
         smp = Node()
@@ -52,7 +51,9 @@ class CircularLL:
                 
 cll = CircularLL()
 cll.addFirst()
+cll.display()
 cll.addNextNode()
+cll.display()
 cll.addMidNode(1)
 cll.display()
 
