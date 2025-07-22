@@ -1,6 +1,8 @@
 #include <iostream>
 using namespace std;
 
+void print();
+
 int main()
 {
     int i, fact = 1, num;
